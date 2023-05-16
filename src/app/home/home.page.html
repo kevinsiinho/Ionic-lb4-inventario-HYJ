@@ -1,0 +1,18 @@
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-button [routerLink]="['//home/lista-facturas']" routerLinkActive="router-link-active"  fill="outline" expand="full">Listas de Facturas</ion-button>
+    <ion-button [routerLink]="['//home/registrar-factura']" fill="outline" expand="full">Registrar Factura</ion-button>
+    <ion-button [routerLink]="['//home/registrar-categoria']" fill="outline" expand="full">Registrar Categoria</ion-button>
+    <ion-button [routerLink]="['//home/registrar-producto']"fill="outline" expand="full">Registrar Producto</ion-button>
+    <ion-button  fill="outline" (click)="cerrar()" expand="full">Cerrar sesión</ion-button>
+
+  </ion-content>
+</div>

@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title><ion-button [routerLink]="['//home']" routerLinkActive="router-link-active"  expand="full">Registrar Producto</ion-button></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">registrar_producto</ion-title>
+    </ion-toolbar>
+  </ion-header>
+ <ion-list  class="categoria">
+  <ion-item>
+    <ion-label position="stacked">Nombre del producto:</ion-label>
+    <ion-input type="text" [(ngModel)]="this.producto.nombre"  placeholder="Escriba aquí"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Precio del producto:</ion-label>
+    <ion-input type="number" [(ngModel)]="this.producto.precio" placeholder="Escriba aquí"></ion-input>
+  </ion-item>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of this.categorias; let index">
+      <ion-radio-group [(ngModel)]="this.producto.categoria">
+      <ion-radio  [value]="item.nombre">{{item.nombre}}</ion-radio><br />
+    </ion-radio-group>
+    </ion-item>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
+</ion-list>
+<ion-button id="present-alert" (click)="crear()" expand="block">Guardar</ion-button>
+
+</ion-content>
+<!--Alerta cuando guardar la categoria aparece el mensaje-->
+<ion-alert
+  trigger="present-alert"
+  header="Alert"
+  subHeader="Important message"
+  [message]="this.mensaje"
+  [buttons]="alertButtons"
+></ion-alert>

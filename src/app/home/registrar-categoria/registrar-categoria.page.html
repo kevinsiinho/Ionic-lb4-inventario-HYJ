@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title><ion-button [routerLink]="['//home']" routerLinkActive="router-link-active"  expand="full">Registrar Categoria</ion-button></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">registrar_categoria</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-item>
+    <ion-label position="stacked">Nombre de la categoria:</ion-label>
+    <ion-input type="text" placeholder="Escriba aquí" [(ngModel)]="categoria.nombre"></ion-input>
+  </ion-item>
+  <ion-button id="present-alert" expand="block" (click)="crear()">Guardar</ion-button>
+
+</ion-content>
+
+<!--Alerta cuando guardar la categoria aparece el mensaje-->
+<ion-alert
+  [trigger]="m"
+  header="Alert"
+  subHeader="Important message"
+  message="Se guardó la categoria"
+  [buttons]="alertButtons"
+></ion-alert>

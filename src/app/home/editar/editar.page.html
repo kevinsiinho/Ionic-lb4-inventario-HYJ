@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title><ion-button [routerLink]="['//home']" routerLinkActive="router-link-active"  expand="full">Editar Factura</ion-button></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">editar</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content >
+    <ion-list>
+      <ion-item *ngFor="let item of this.productos; let i=index">
+        <ion-input type="number" [disabled]="true" [value]="item.id">{{i+1}}. {{ item.categoria}},{{item.nombre}}</ion-input>
+        <ion-button expand="block" (click)="Onid(item.id)" (click)="setOpen(true)">Añadir</ion-button>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll>
+      <ion-infinite-scroll-content loadingText="Please wait..." loadingSpinner="bubbles"></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-content>
+<ion-fab class="btn-pagar" slot="fixed" vertical="top" horizontal="end" [edge]="true">
+  <ion-fab-button id="open-modal" expand="block">Actualizar</ion-fab-button>
+</ion-fab>
+</ion-content>
+
+<!--/////////////////////////////////////////////////////7-->
+
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Escribe la cantidad</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpen(false)">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-item>
+        <ion-input type="number" [(ngModel)]="this.producto.cantidad" label="Cantidad" placeholder="Escribe aquí"></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="carrito()"> guardar </ion-button>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<!--////////////////////////////////////////////////////////////////////777-->
+<ion-modal #modal trigger="open-modal" [canDismiss]="canDismiss" [presentingElement]="page">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Lista</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="modal.dismiss()">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+             <ion-item *ngFor="let item2 of this.factura.addproductos; let y=index">
+               <ion-label>{{y+1}}. {{item2.categoria}},{{item2.nombre}}:{{item2.cantidad}}*{{item2.precio}}={{item2.cantidad*item2.precio}} </ion-label> <br>
+               <ion-button size="small" (click)="eliminar(y)" color="warning"><ion-icon name="backspace-outline"></ion-icon></ion-button>
+             </ion-item>
+             <ion-item>
+              <ion-label>SUBTOTAL=${{this.factura.subtotal}}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>IVA=${{this.factura.iva}}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>TOTAL=${{this.factura.total}} </ion-label>
+            </ion-item>
+           <ion-button (click)="pagar()" expand="block">Guardar</ion-button>
+         </ion-content>
+  </ng-template>
+</ion-modal>

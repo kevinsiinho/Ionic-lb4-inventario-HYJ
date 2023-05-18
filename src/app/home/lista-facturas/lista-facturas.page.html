@@ -1,5 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <!---redireciona al home -->
     <ion-title><ion-button [routerLink]="['//home']" routerLinkActive="router-link-active"  expand="full">Listas de Facturas</ion-button>
     </ion-title>
   </ion-toolbar>
@@ -11,7 +12,7 @@
       <ion-title size="large">lista_facturas</ion-title>
     </ion-toolbar>
   </ion-header>
-
+<!--muestra todas las facturas-->
   <ion-list *ngFor="let item of this.listafacturas">
     <ion-item>
       <ion-label>{{this.item.fecha}}</ion-label>

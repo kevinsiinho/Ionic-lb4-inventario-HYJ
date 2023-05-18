@@ -12,7 +12,7 @@ export class ProductoService {
   public producto= new Producto()
   public productos:Producto[]=[]
   constructor() { }
-
+//obtiene todo slos productos
 Productos = async () => {
  const { value } = await Preferences.get({ key: 'token' });
   const option = {
@@ -31,7 +31,7 @@ this.productos=[]
       return this.productos
 }
 
-
+//crea un producto
 CrearProducto = async (producto:Producto) => {
  const { value } = await Preferences.get({ key: 'token' });
   const option = {

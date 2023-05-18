@@ -1,5 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <!--redirecion al home-->
     <ion-title><ion-button [routerLink]="['//home']" routerLinkActive="router-link-active"  expand="full">Registrar Categoria</ion-button></ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,7 +11,7 @@
       <ion-title size="large">registrar_categoria</ion-title>
     </ion-toolbar>
   </ion-header>
-
+<!--formulario para crear categoria-->
   <ion-item>
     <ion-label position="stacked">Nombre de la categoria:</ion-label>
     <ion-input type="text" placeholder="Escriba aquí" [(ngModel)]="categoria.nombre"></ion-input>

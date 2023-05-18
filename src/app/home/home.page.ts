@@ -12,6 +12,7 @@ export class HomePage {
   constructor(public router:Router) {}
 
 async  cerrar(){
+  //elimina el token
     await Preferences.remove({ key: 'token' });
     this.router.navigate(['/sesion'])
   }

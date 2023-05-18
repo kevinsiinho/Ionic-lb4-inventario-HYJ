@@ -8,11 +8,12 @@
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
+    <!--las rutas-->
     <ion-button [routerLink]="['//home/lista-facturas']" routerLinkActive="router-link-active"  fill="outline" expand="full">Listas de Facturas</ion-button>
     <ion-button [routerLink]="['//home/registrar-factura']" fill="outline" expand="full">Registrar Factura</ion-button>
     <ion-button [routerLink]="['//home/registrar-categoria']" fill="outline" expand="full">Registrar Categoria</ion-button>
     <ion-button [routerLink]="['//home/registrar-producto']"fill="outline" expand="full">Registrar Producto</ion-button>
     <ion-button  fill="outline" (click)="cerrar()" expand="full">Cerrar sesión</ion-button>
-
+    <!--btn para cerar la sesión-->
   </ion-content>
 </div>

@@ -14,7 +14,7 @@ export class CategoriaService {
   constructor() { }
 
 
-
+//función para traer todas las categorias y las retorna
 Categorias = async () => {
   const { value } = await Preferences.get({ key: 'token' });
 
@@ -34,7 +34,7 @@ this.categorias=[]
       return this.categorias
 }
 
-
+//función para crear categoria y retorna la categoria
 CrearCategoria = async (categoria:Categoria) => {
  const { value } = await Preferences.get({ key: 'token' });
   const option = {

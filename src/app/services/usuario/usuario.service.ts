@@ -21,8 +21,7 @@ OnRegistrar = async (usuario:Usuario)=>{
   const response: HttpResponse = await CapacitorHttp.post(options);
   return response.status
 };
-
-
+//Inicia sesiión
 OnLogin = async(email:string,password:string)=>{
   const options = {
     url: this.uri+'/users/login/',
@@ -33,7 +32,7 @@ OnLogin = async(email:string,password:string)=>{
 const response: HttpResponse = await CapacitorHttp.post(options);
  return response
 }
-
+//quien es devuelve el id
 OnQuien = async(token:string)=>{
   const options = {
     url: this.uri+'/whoAmI',

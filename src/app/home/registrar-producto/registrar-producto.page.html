@@ -1,5 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <!--Redireciona al home-->
     <ion-title><ion-button [routerLink]="['//home']" routerLinkActive="router-link-active"  expand="full">Registrar Producto</ion-button></ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,6 +12,7 @@
     </ion-toolbar>
   </ion-header>
  <ion-list  class="categoria">
+  <!--Formulario para el producto, primero selecionar la categoria y  siempre recargar la página-->
   <ion-item>
     <ion-label position="stacked">Nombre del producto:</ion-label>
     <ion-input type="text" [(ngModel)]="this.producto.nombre"  placeholder="Escriba aquí"></ion-input>

@@ -16,11 +16,12 @@ export class RegistrarCategoriaPage implements OnInit {
 
   ngOnInit() {
   }
-
+//crea una nueva categoria primero verifica que que si hallá escrito algo
   crear(){
     if(this.categoria.nombre!=""){
       this.CategoriaService.CrearCategoria(this.categoria).then()
       this.m="present-alert"
+      alert("Guarado")
     }
   }
 }

@@ -28,7 +28,9 @@ export class EditarPage implements OnInit {
     ) { }
 
   ngOnInit() {
+    //obtiene el id de la ruta y lo guarda en la varible id
     this.id=this.activerouter.snapshot.paramMap.get('id')!
+    //traer la información de la factura selecionada
     this.facturaService.facturaOne(this.id).then((res:Factura)=>{
       this.factura=res
     })
@@ -39,27 +41,31 @@ export class EditarPage implements OnInit {
   }
 
   public alertButtons = ['OK'];
-
+//le manda el id solo por si hay algun error
   Onid(id:string){
     this.id=id
   }
-
+//esto es de ionic
   async canDismiss(data?: any, role?: string) {
     return role !== 'gesture';
   }
 
-
+//carrito añade todos los producto que son selecionado o añadidos
   carrito(){
     let t
+    //comprueba que la cantidad ingresada sea mayor a sino muestra un mensaje
     if(this.producto.cantidad>0){
+      //pone el subtotal de la factura en 0 siempre para que cada vez que se añada un nuevo producto el valor se sume y no se acumule
     this.factura.subtotal=0
     this.productos.forEach(element => {
+      //recore los producto y seleciona el que no interesa
       if(element.id===this.id){
         element.cantidad=this.producto.cantidad
+        //agrega el nuevo produtcto a la factura
         this.factura.addproductos.push(element)
       }
     });
-
+//esto es para calcular el valor de la compra
     this.factura.addproductos.forEach(item=>{
       t=0
       t=item.cantidad*item.precio
@@ -71,14 +77,14 @@ export class EditarPage implements OnInit {
     }else{alert("Revisa")}
   }
 
-
+//aqui paga y redireciona a la lista de facutas
 pagar(){
   this.factura.vendedorId="1148954816"
   this.facturaService.Actualizarfacturas(this.factura)
   this.router.navigate(['/home/lista-facturas'])
 
 }
-
+//para eliminar un producto de la facutra en caso de error
 eliminar(x:number){
   let t
   this.factura.addproductos.splice(x,1)

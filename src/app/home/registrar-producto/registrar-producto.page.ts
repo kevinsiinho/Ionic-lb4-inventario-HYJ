@@ -23,12 +23,13 @@ export class RegistrarProductoPage implements OnInit {
     ) { }
 
   ngOnInit() {
+  //trae todos las categorias
   this.CategoriaService.Categorias().then((res:Categoria[])=>{
     this.categorias=res
   })
 
   }
-
+//crea el producto y verifica que el formulario tenga todos los campos ingresado
 crear(){
   if(this.producto.nombre!="" && this.producto.precio>0 && this.producto.categoria!=""){
     this.mensaje="Se guardó correctamente"
@@ -41,7 +42,7 @@ crear(){
 
 }
 
-
+//envia el formulario al servicio
   onIonInfinite(ev:any) {
     this.CategoriaService.Categorias().then();
     setTimeout(() => {

@@ -13,7 +13,7 @@ export class ListaFacturasPage implements OnInit {
   constructor(
     public facturaService:FacturasService
     ) { }
-
+//trae todas las facturas de la db y guarda en listafacutras
   ngOnInit() {
     this.facturaService.facturasAll().then((res:Factura[])=>{
       this.listafacturas=res

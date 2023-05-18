@@ -12,7 +12,7 @@ export class FacturasService {
   public factura= new Factura()
   public facturas:Factura[]=[]
   constructor() { }
-
+//funcion para traer todas las facturas
  facturasAll = async () => {
     const { value } = await Preferences.get({ key: 'token' });
     const option = {
@@ -29,7 +29,7 @@ export class FacturasService {
     });
     return this.facturas
   };
-
+//función para traer una sola factura
   facturaOne = async(id:String)=>{
     const { value } = await Preferences.get({ key: 'token' });
     const options = {
@@ -42,7 +42,7 @@ export class FacturasService {
   const res: HttpResponse = await CapacitorHttp.get(options);
         return res.data
   }
-
+//función para crear una factura
 Crearfactura = async (nueva:Factura) =>{
   const { value } = await Preferences.get({ key: 'token' });
       const options = {
@@ -53,13 +53,12 @@ Crearfactura = async (nueva:Factura) =>{
       }
         };
       const res: HttpResponse = await CapacitorHttp.post(options);
-            return res.data
+      return res.data
      };
 
-
-
-
- Actualizarfacturas = async (modificar:Factura) =>{
+//actualiza una factura
+Actualizarfacturas = async (modificar:Factura) =>{
+  //obtiene el token
   const { value } = await Preferences.get({ key: 'token' });
       const options = {
         url: this.uri+'/facturas/'+modificar.id,

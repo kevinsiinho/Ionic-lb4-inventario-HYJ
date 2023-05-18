@@ -1,5 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <!--redireciona al home-->
     <ion-title><ion-button [routerLink]="['//home']" routerLinkActive="router-link-active"  expand="full">Registrar Factura</ion-button></ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,6 +13,7 @@
   </ion-header>
   <ion-content >
     <ion-list>
+      <!--muestra todos los productos y el boton añadir-->
       <ion-item *ngFor="let item of this.productos; let i=index">
         <ion-input type="number" [disabled]="true" [value]="item.id">{{i+1}}. {{ item.categoria}},{{item.nombre}}</ion-input>
         <ion-button expand="block" (click)="Onid(item.id)" (click)="setOpen(true)">Añadir</ion-button>
@@ -39,6 +41,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
+      <!--formulario para ingresar la cantidad-->
       <ion-item>
         <ion-input type="number" [(ngModel)]="this.producto.cantidad" label="Cantidad" placeholder="Escribe aquí"></ion-input>
       </ion-item>
@@ -59,6 +62,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
+      <!--muestra todos los productos añadidos-->
              <ion-item *ngFor="let item2 of this.factura.addproductos; let y=index">
                <ion-label>{{y+1}}. {{item2.categoria}},{{item2.nombre}}:{{item2.cantidad}}*{{item2.precio}}={{item2.cantidad*item2.precio}} </ion-label>
              </ion-item>
